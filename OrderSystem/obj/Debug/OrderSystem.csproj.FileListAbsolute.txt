@@ -1,0 +1,9 @@
+C:\Users\Giannis\Documents\GitHub\OrderSystem\OrderSystem\bin\Debug\OrderSystem.exe.config
+C:\Users\Giannis\Documents\GitHub\OrderSystem\OrderSystem\bin\Debug\OrderSystem.exe
+C:\Users\Giannis\Documents\GitHub\OrderSystem\OrderSystem\bin\Debug\OrderSystem.pdb
+C:\Users\Giannis\Documents\GitHub\OrderSystem\OrderSystem\obj\Debug\OrderSystem.Properties.Resources.resources
+C:\Users\Giannis\Documents\GitHub\OrderSystem\OrderSystem\obj\Debug\OrderSystem.csproj.GenerateResource.Cache
+C:\Users\Giannis\Documents\GitHub\OrderSystem\OrderSystem\obj\Debug\OrderSystem.exe
+C:\Users\Giannis\Documents\GitHub\OrderSystem\OrderSystem\obj\Debug\OrderSystem.pdb
+C:\Users\Giannis\Documents\GitHub\OrderSystem\OrderSystem\obj\Debug\OrderSystem.MainForm.resources
+C:\Users\Giannis\Documents\GitHub\OrderSystem\OrderSystem\obj\Debug\OrderSystem.CustomerAddForm.resources
