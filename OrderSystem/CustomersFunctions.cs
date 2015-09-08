@@ -35,10 +35,12 @@ namespace OrderSystem
                 if (!System.IO.File.Exists(FullPath))
                 {
                     System.IO.File.WriteAllLines(FullPath, lines);
+                    System.Windows.Forms.MessageBox.Show("Ο πελάτης δημιουργήθηκε");
+
                 }
                 else
                 {
-                    Console.WriteLine("File \"{0}\" already exists.", FileName);
+                    System.Windows.Forms.MessageBox.Show("File already exists.", ID);                  
                     return;
                 }
             }
