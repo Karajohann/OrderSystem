@@ -8,13 +8,13 @@ namespace OrderSystem
 {
     class Customer
     {
-        int _ID;
-        string _firstName;
-        string _lastName;
-        string _telephone;
-        string _address;
+        string _ID = "0";
+        string _firstName = "-";
+        string _lastName = "-";
+        string _telephone = "-";
+        string _address = "-";
 
-        public int ID
+        public string ID
         {
             get
             {
@@ -76,17 +76,21 @@ namespace OrderSystem
         /// </summary>
         public Customer()    //Base Constructor (private fields not null at all)
         {
-            _ID = 0;
-            _firstName = "_";
-            _lastName = "_";
-            _telephone = "_";
-            _address = "_";
+            ID = _ID;
+            FirstName = _firstName;
+            LastName = _lastName;
+            Telephone = _telephone;
+            Address = _address;
+            
         }
 
-
+        /// <summary>
+        /// Επιστρέφει τα στοιχεία του πελάτη σε μορφή "ID, FirstName, LastName, Telephone, Address"
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
-            return ID + " " + FirstName + " " + LastName + " " + Telephone + " " + Address;
+            return ID + ", " + FirstName + ", " + LastName + ", " + Telephone + ", " + Address;
         }
 
         public override bool Equals(object obj)

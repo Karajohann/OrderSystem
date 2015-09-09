@@ -19,7 +19,8 @@ namespace OrderSystem
          * patas deksi click pano sto onoma tou project apo to solution explorer kai meta click
          * sto open Folder in File Explorer
          */
-        private string FilePath = @"C:\Users\Giannis\Documents\GitHub\OrderSystem\Data";
+        private const string FileCustomersPath = @"Customers.txt";
+        private const string FileOrdersPath = @"Orders.txt";
         private void CheckFileExist(string FilePath)
         {
 
@@ -27,42 +28,33 @@ namespace OrderSystem
 
         public void CreateFileData(string ID)
         {
-            string FileName = ID + ".txt";
-            string FullPath = System.IO.Path.Combine(FilePath, FileName);
-            File.Create(FullPath);
+
         }
 
-        public void Add(string ID, string FirstName, string LastName, string Telephone, string Address)
+        public void Add(object Customer)
         {
-            string FileName = ID + ".txt";
-            string FullPath = System.IO.Path.Combine(FilePath, FileName);
-            string[] lines = { FirstName, LastName, Telephone, Address };
-
-            System.IO.Directory.CreateDirectory(FilePath);
             try
             {
-
-                if (!System.IO.File.Exists(FullPath))
+                string CustomerStr = Customer.ToString();
+                if (File.Exists(FileCustomersPath))
                 {
-                    System.IO.File.WriteAllLines(FullPath, lines);
-                    System.Windows.Forms.MessageBox.Show("Ο πελάτης δημιουργήθηκε");
-
+                    File.AppendText(CustomerStr);
                 }
                 else
                 {
-                    System.Windows.Forms.MessageBox.Show("File already exists.", ID);                  
-                    return;
+                    File.AppendAllText(FileCustomersPath, CustomerStr);
                 }
             }
-            catch (System.UnauthorizedAccessException e)
+            catch(Exception e)
             {
-                Console.WriteLine(e.Message);
+                System.Windows.Forms.MessageBox.Show(e.ToString());
             }
+            
         }
 
         public void Delete(int ID)
         {
-            File.Delete(FilePath + ID + ".txt");
+
         }
 
         public void Update(int ID, string FirstName, string LastName, string Telephone, string Address)
