@@ -37,18 +37,18 @@ namespace OrderSystem
             {
                 if (File.Exists(FileCustomersPath))
                 {
-                    File.AppendText(Customer);
+                    File.AppendAllText(FileCustomersPath, Customer + Environment.NewLine);
                 }
                 else
                 {
-                    File.AppendAllText(FileCustomersPath, Customer);
+                    File.AppendAllText(FileCustomersPath, Customer + Environment.NewLine);
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 System.Windows.Forms.MessageBox.Show(e.ToString());
             }
-            
+
         }
 
         public void Delete(int ID)
@@ -61,5 +61,19 @@ namespace OrderSystem
 
         }
 
+        // Την κάνω static για να μπορεί να φορτώνει όταν ανοίγω το πρόγραμμα
+        public static List<Customer> DataFileCustomers()
+        {
+            char[] delimiterChars = { ' ', ',', '.', ':', '\t',};
+            var Customer = new List<Customer>();
+            {
+                foreach (var line in File.ReadAllLines(FileCustomersPath))
+                {
+                    var columns = line.Split(delimiterChars);
+                    Customer.Add(new Customer { ID = columns[0], FirstName = columns[1], LastName = columns[2], Telephone = columns[3], Address = columns[4] });
+                }
+            }
+            return Customer;
+        }
     }
 }

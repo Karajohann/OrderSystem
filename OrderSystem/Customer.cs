@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace OrderSystem
 {
@@ -76,12 +77,11 @@ namespace OrderSystem
         /// </summary>
         public Customer()    //Base Constructor (private fields not null at all)
         {
-            ID = _ID;
-            FirstName = _firstName;
-            LastName = _lastName;
-            Telephone = _telephone;
-            Address = _address;
-            
+            //ID = _ID;
+            //FirstName = _firstName;
+            //LastName = _lastName;
+            //Telephone = _telephone;
+            //Address = _address;            
         }
 
         /// <summary>
@@ -117,5 +117,7 @@ namespace OrderSystem
             return this._ID.GetHashCode() ^ this._firstName.GetHashCode() ^ this._lastName.GetHashCode() ^
                 this._telephone.GetHashCode() ^ this._address.GetHashCode();
         }
+
+
     }
 }

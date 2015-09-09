@@ -19,18 +19,10 @@ namespace OrderSystem
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            try
-            {
-                Customer Cust = new Customer();
-                CustomersFunctions CF = new CustomersFunctions();
-                CF.Add(Cust.ToString(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text));
+            Customer Cust = new Customer();
+            CustomersFunctions CF = new CustomersFunctions();
+            CF.Add(Cust.ToString(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text));            
 
-            }
-            catch(StackOverflowException exception)
-            {
-                MessageBox.Show(exception.ToString());
-            }
-            
         }
     }
 }
