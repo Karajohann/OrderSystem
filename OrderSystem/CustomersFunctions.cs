@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.IO;
 
 namespace OrderSystem
@@ -64,16 +68,16 @@ namespace OrderSystem
         // Την κάνω static για να μπορεί να φορτώνει όταν ανοίγω το πρόγραμμα
         public static List<Customer> DataFileCustomers()
         {
-            char[] delimiterChars = { ' ', ',', '.', ':', '\t',};
-            var Customer = new List<Customer>();
+            List<Customer> customers = new List<Customer>();
+            Customer newcustomer;
+            string[] lines = File.ReadAllLines(FileCustomersPath);
+            foreach (string line in lines)
             {
-                foreach (var line in File.ReadAllLines(FileCustomersPath))
-                {
-                    var columns = line.Split(delimiterChars);
-                    Customer.Add(new Customer { ID = columns[0], FirstName = columns[1], LastName = columns[2], Telephone = columns[3], Address = columns[4] });
-                }
+                var columns = line.Split(',');
+                newcustomer = new Customer(columns[0], columns[1], columns[2], columns[3],columns[4]);                
             }
-            return Customer;
+            return customers;
         }
+
     }
 }

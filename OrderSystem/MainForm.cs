@@ -16,8 +16,6 @@ namespace OrderSystem
         public MainForm()
         {
             InitializeComponent();
-
-            dataGridView1.DataSource = CustomersFunctions.DataFileCustomers();
         }
 
         private void btnAddCustomer_Click(object sender, EventArgs e)

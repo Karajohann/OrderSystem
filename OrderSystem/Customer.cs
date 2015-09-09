@@ -9,11 +9,11 @@ namespace OrderSystem
 {
     class Customer
     {
-        string _ID = "0";
-        string _firstName = "-";
-        string _lastName = "-";
-        string _telephone = "-";
-        string _address = "-";
+        string _ID;
+        string _firstName;
+        string _lastName;
+        string _telephone;
+        string _address;
 
         public string ID
         {
@@ -24,7 +24,7 @@ namespace OrderSystem
 
             set
             {
-                 _ID = ID;
+                 _ID = value;
             }
 
         }
@@ -36,7 +36,7 @@ namespace OrderSystem
             }
             set
             {
-                _firstName = FirstName;
+                _firstName = value;
             }
         }
         public string LastName
@@ -47,7 +47,7 @@ namespace OrderSystem
             }
             set
             {
-                _firstName = FirstName;
+                _lastName = value;
             }
         }
         public string Telephone
@@ -58,7 +58,7 @@ namespace OrderSystem
             }
             set
             {
-                _telephone = Telephone;
+                _telephone = value;
             }
         }
         public string Address
@@ -69,19 +69,22 @@ namespace OrderSystem
             }
             set
             {
-                _address = Address;
+                _address = value;
             }
         }
-        /// <summary>
-        /// Epistrefei panta times
-        /// </summary>
-        public Customer()    //Base Constructor (private fields not null at all)
+
+        public Customer()
         {
-            //ID = _ID;
-            //FirstName = _firstName;
-            //LastName = _lastName;
-            //Telephone = _telephone;
-            //Address = _address;            
+
+        }
+
+        public Customer(string ID, string FirstName, string LastName, string Telephone, string Address)    //Base Constructor (private fields not null at all)
+        {
+            this.ID = ID;
+            this.FirstName = FirstName;
+            this.LastName = LastName;
+            this.Telephone = Telephone;
+            this.Address = Address;
         }
 
         /// <summary>
@@ -90,11 +93,11 @@ namespace OrderSystem
         /// <returns></returns>
         public override string ToString()
         {
-            return ID + ", " + FirstName + ", " + LastName + ", " + Telephone + ", " + Address;
+            return ID + "," + FirstName + "," + LastName + "," + Telephone + "," + Address;
         }
         public string ToString(string ID, string FirstName, string LastName, string Telephone, string Address)
         {
-            return ID + ", " + FirstName + ", " + LastName + ", " + Telephone + ", " + Address;
+            return ID + "," + FirstName + "," + LastName + "," + Telephone + "," + Address;
         }
 
         public override bool Equals(object obj)
