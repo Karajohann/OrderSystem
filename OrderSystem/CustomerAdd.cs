@@ -22,13 +22,9 @@ namespace OrderSystem
             try
             {
                 Customer Cust = new Customer();
-                Cust.ID = textBox1.Text;
-                Cust.FirstName = textBox2.Text;
-                Cust.LastName = textBox3.Text;
-                Cust.Telephone = textBox4.Text;
-                Cust.Address = textBox5.Text;
                 CustomersFunctions CF = new CustomersFunctions();
-                CF.Add(Cust);
+                CF.Add(Cust.ToString(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text));
+
             }
             catch(StackOverflowException exception)
             {

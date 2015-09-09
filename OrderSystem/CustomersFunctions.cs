@@ -31,18 +31,17 @@ namespace OrderSystem
 
         }
 
-        public void Add(object Customer)
+        public void Add(string Customer)
         {
             try
             {
-                string CustomerStr = Customer.ToString();
                 if (File.Exists(FileCustomersPath))
                 {
-                    File.AppendText(CustomerStr);
+                    File.AppendText(Customer);
                 }
                 else
                 {
-                    File.AppendAllText(FileCustomersPath, CustomerStr);
+                    File.AppendAllText(FileCustomersPath, Customer);
                 }
             }
             catch(Exception e)

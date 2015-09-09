@@ -23,7 +23,7 @@ namespace OrderSystem
 
             set
             {
-                ID = value;
+                 _ID = ID;
             }
 
         }
@@ -35,7 +35,7 @@ namespace OrderSystem
             }
             set
             {
-                FirstName = value;
+                _firstName = FirstName;
             }
         }
         public string LastName
@@ -46,7 +46,7 @@ namespace OrderSystem
             }
             set
             {
-                LastName = value;
+                _firstName = FirstName;
             }
         }
         public string Telephone
@@ -57,7 +57,7 @@ namespace OrderSystem
             }
             set
             {
-                Telephone = value;
+                _telephone = Telephone;
             }
         }
         public string Address
@@ -68,7 +68,7 @@ namespace OrderSystem
             }
             set
             {
-                Address = value;
+                _address = Address;
             }
         }
         /// <summary>
@@ -89,6 +89,10 @@ namespace OrderSystem
         /// </summary>
         /// <returns></returns>
         public override string ToString()
+        {
+            return ID + ", " + FirstName + ", " + LastName + ", " + Telephone + ", " + Address;
+        }
+        public string ToString(string ID, string FirstName, string LastName, string Telephone, string Address)
         {
             return ID + ", " + FirstName + ", " + LastName + ", " + Telephone + ", " + Address;
         }
