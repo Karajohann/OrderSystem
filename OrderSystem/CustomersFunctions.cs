@@ -57,7 +57,7 @@ namespace OrderSystem
 
         public void Delete(int ID)
         {
-
+            
         }
 
         public void Update(int ID, string FirstName, string LastName, string Telephone, string Address)
