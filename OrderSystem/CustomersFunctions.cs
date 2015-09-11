@@ -34,6 +34,19 @@ namespace OrderSystem
 
         }
 
+        public static void CheckandCreate()
+        {
+            if(File.Exists(FileCustomersPath))
+            {
+
+            }
+            else
+            {
+                Customer C = new Customer(0, "-", "-", "-", "-");
+                File.AppendAllText(FileCustomersPath, C.ToString());
+            }
+        }
+
 
         public void Add(string Customer)//Create
         {

@@ -18,6 +18,8 @@ namespace OrderSystem
         {
             InitializeComponent();
 
+            CustomersFunctions.CheckandCreate();
+
             RefreshGrid();            
         }
 
