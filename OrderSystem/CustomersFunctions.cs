@@ -43,7 +43,7 @@ namespace OrderSystem
             else
             {
                 Customer C = new Customer(0, "-", "-", "-", "-");
-                File.AppendAllText(FileCustomersPath, C.ToString());
+                File.AppendAllText(FileCustomersPath, C.ToString() + Environment.NewLine);
             }
         }
 
@@ -52,14 +52,7 @@ namespace OrderSystem
         {
             try
             {
-                if (File.Exists(FileCustomersPath))
-                {
-                    File.AppendAllText(FileCustomersPath, Customer + Environment.NewLine);
-                }
-                else
-                {
-                    File.AppendAllText(FileCustomersPath, Customer + Environment.NewLine);
-                }
+                File.AppendAllText(FileCustomersPath, Customer + Environment.NewLine);
             }
             catch (Exception e)
             {
@@ -71,14 +64,7 @@ namespace OrderSystem
         {
             try
             {
-                if (File.Exists(Path))
-                {
                     File.AppendAllText(Path, Customer + Environment.NewLine);
-                }
-                else
-                {
-                    File.AppendAllText(Path, Customer + Environment.NewLine);
-                }
             }
             catch (Exception e)
             {
@@ -104,7 +90,6 @@ namespace OrderSystem
             File.Copy(FileHelp, FileCustomersPath, true);
             //Πρέπει να σβήσω το File Help
             File.Delete(FileHelp);
-
         }
 
         public void Update(int ID, string FirstName, string LastName, string Telephone, string Address)
@@ -122,9 +107,9 @@ namespace OrderSystem
                     if (i.ID != Cust.ID)
                     {
                         Add(i.ToString(), FileHelp);
-                        Add(Cust.ToString(), FileHelp);
                     }
                 }
+                Add(Cust.ToString(), FileHelp);
             }
             catch (Exception e)
             {
@@ -149,6 +134,5 @@ namespace OrderSystem
             }
             return customers;
         }
-
     }
 }
