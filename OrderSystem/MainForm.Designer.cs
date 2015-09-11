@@ -31,6 +31,8 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnAddCustomer = new System.Windows.Forms.Button();
             this.btnAddOrder = new System.Windows.Forms.Button();
+            this.btnUpdateCustomer = new System.Windows.Forms.Button();
+            this.btnDeleteCustomer = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -39,6 +41,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 59);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(836, 442);
             this.dataGridView1.TabIndex = 0;
             // 
@@ -61,11 +64,32 @@
             this.btnAddOrder.Text = "Προσθήκη Παραγγελίας";
             this.btnAddOrder.UseVisualStyleBackColor = true;
             // 
+            // btnUpdateCustomer
+            // 
+            this.btnUpdateCustomer.Location = new System.Drawing.Point(158, 18);
+            this.btnUpdateCustomer.Name = "btnUpdateCustomer";
+            this.btnUpdateCustomer.Size = new System.Drawing.Size(135, 28);
+            this.btnUpdateCustomer.TabIndex = 3;
+            this.btnUpdateCustomer.Text = "Ενημέρωση Στοιχείων";
+            this.btnUpdateCustomer.UseVisualStyleBackColor = true;
+            this.btnUpdateCustomer.Click += new System.EventHandler(this.btnUpdateCustomer_Click);
+            // 
+            // btnDeleteCustomer
+            // 
+            this.btnDeleteCustomer.Location = new System.Drawing.Point(299, 18);
+            this.btnDeleteCustomer.Name = "btnDeleteCustomer";
+            this.btnDeleteCustomer.Size = new System.Drawing.Size(135, 28);
+            this.btnDeleteCustomer.TabIndex = 4;
+            this.btnDeleteCustomer.Text = "Διαγραφή Πελάτη";
+            this.btnDeleteCustomer.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(860, 513);
+            this.Controls.Add(this.btnDeleteCustomer);
+            this.Controls.Add(this.btnUpdateCustomer);
             this.Controls.Add(this.btnAddOrder);
             this.Controls.Add(this.btnAddCustomer);
             this.Controls.Add(this.dataGridView1);
@@ -81,6 +105,8 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnAddCustomer;
         private System.Windows.Forms.Button btnAddOrder;
+        private System.Windows.Forms.Button btnUpdateCustomer;
+        private System.Windows.Forms.Button btnDeleteCustomer;
     }
 }
 

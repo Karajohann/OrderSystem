@@ -21,8 +21,8 @@ namespace OrderSystem
         {
             Customer Cust = new Customer();
             CustomersFunctions CF = new CustomersFunctions();
-            CF.Add(Cust.ToString(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text));            
-
+            CF.Add(Cust.StrCustomer(Convert.ToInt32(textBox1.Text), textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text));            
+            
         }
     }
 }

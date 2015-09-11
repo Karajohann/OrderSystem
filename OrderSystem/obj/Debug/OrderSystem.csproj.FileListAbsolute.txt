@@ -10,4 +10,4 @@ C:\Users\Giannis\Documents\GitHub\OrderSystem\OrderSystem\obj\Debug\OrderSystem.
 C:\Users\chrysikos\Documents\GitHub\OrderSystem\OrderSystem\bin\Debug\OrderSystem.exe.config
 C:\Users\chrysikos\Documents\GitHub\OrderSystem\OrderSystem\obj\Debug\OrderSystem.exe
 C:\Users\chrysikos\Documents\GitHub\OrderSystem\OrderSystem\obj\Debug\OrderSystem.pdb
-C:\Users\Giannis\Documents\GitHub\OrderSystem\OrderSystem\obj\Debug\OrderSystem.csprojResolveAssemblyReference.cache
+C:\Users\Giannis\Documents\GitHub\OrderSystem\OrderSystem\obj\Debug\OrderSystem.UpdateForm.resources

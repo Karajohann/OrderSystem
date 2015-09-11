@@ -7,15 +7,15 @@ using System.IO;
 
 namespace OrderSystem
 {
-    class Customer
+    public class Customer
     {
-        string _ID;
+        int _ID;
         string _firstName;
         string _lastName;
         string _telephone;
         string _address;
 
-        public string ID
+        public int ID
         {
             get
             {
@@ -78,7 +78,7 @@ namespace OrderSystem
 
         }
 
-        public Customer(string ID, string FirstName, string LastName, string Telephone, string Address)    //Base Constructor (private fields not null at all)
+        public Customer(int ID, string FirstName, string LastName, string Telephone, string Address)
         {
             this.ID = ID;
             this.FirstName = FirstName;
@@ -87,15 +87,16 @@ namespace OrderSystem
             this.Address = Address;
         }
 
+        public string StrCustomer(int ID, string FirstName, string LastName, string Telephone, string Address)
+        {
+            return ID + "," + FirstName + "," + LastName + "," + Telephone + "," + Address; 
+        }
+
         /// <summary>
         /// Επιστρέφει τα στοιχεία του πελάτη σε μορφή "ID, FirstName, LastName, Telephone, Address"
         /// </summary>
         /// <returns></returns>
         public override string ToString()
-        {
-            return ID + "," + FirstName + "," + LastName + "," + Telephone + "," + Address;
-        }
-        public string ToString(string ID, string FirstName, string LastName, string Telephone, string Address)
         {
             return ID + "," + FirstName + "," + LastName + "," + Telephone + "," + Address;
         }
@@ -111,8 +112,7 @@ namespace OrderSystem
                 return false;
             }
 
-            return this.FirstName == ((Customer)obj).FirstName &&
-            this.LastName == ((Customer)obj).LastName;
+            return this.ID == ((Customer)obj)._ID;
         }
 
         public override int GetHashCode()
