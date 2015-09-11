@@ -29,6 +29,7 @@ namespace OrderSystem
             LastNameExist.Text = LastName;
             TelephoneExist.Text = Telephone;
             AddressExist.Text = Address;
+            IDReplace.Text = id.ToString();
 
         }
 
@@ -37,7 +38,9 @@ namespace OrderSystem
             CustomersFunctions CF = new CustomersFunctions();
             CF.Update(Convert.ToInt32(IDReplace.Text), FirstNameReplace.Text,
                 LastNameReplace.Text, TelephoneReplace.Text, AddressReplace.Text);
+
         }
+
 
         
     }

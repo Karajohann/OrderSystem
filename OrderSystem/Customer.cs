@@ -75,7 +75,6 @@ namespace OrderSystem
 
         public Customer()
         {
-
         }
 
         public Customer(int ID, string FirstName, string LastName, string Telephone, string Address)

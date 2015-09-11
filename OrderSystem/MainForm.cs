@@ -29,7 +29,24 @@ namespace OrderSystem
         private void btnAddCustomer_Click(object sender, EventArgs e)
         {
             CustomerAddForm CAF = new CustomerAddForm();
-            CAF.Show();
+
+            DialogResult result = CAF.ShowDialog();
+            if (result == System.Windows.Forms.DialogResult.OK)
+            {
+                CAF.Dispose();
+                RefreshGrid();
+            }
+            if (result == System.Windows.Forms.DialogResult.Cancel)
+            {
+                CAF.Dispose();
+                RefreshGrid();
+            }
+            if (result != System.Windows.Forms.DialogResult.OK && result != System.Windows.Forms.DialogResult.Cancel)
+            {
+                CAF.Show();
+            }
+
+
         }
 
         private void btnUpdateCustomer_Click(object sender, EventArgs e)
@@ -47,7 +64,6 @@ namespace OrderSystem
             form.SetExistCells(ID, FirstName, LastName, Telephone, Address);
 
             DialogResult result = form.ShowDialog();
-
             if (result == System.Windows.Forms.DialogResult.OK)
             {
                 form.Dispose();
@@ -62,6 +78,15 @@ namespace OrderSystem
             {
                 form.Show();
             }
+        }
+
+        private void btnDeleteCustomer_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow row = dataGridView1.CurrentCell.OwningRow;
+            int ID = Convert.ToInt32(row.Cells[0].Value.ToString());
+            CustomersFunctions CF = new CustomersFunctions();
+            CF.Delete(ID);
+            RefreshGrid();
         }
     }
 }

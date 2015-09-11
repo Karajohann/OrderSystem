@@ -82,6 +82,7 @@
             this.btnDeleteCustomer.TabIndex = 4;
             this.btnDeleteCustomer.Text = "Διαγραφή Πελάτη";
             this.btnDeleteCustomer.UseVisualStyleBackColor = true;
+            this.btnDeleteCustomer.Click += new System.EventHandler(this.btnDeleteCustomer_Click);
             // 
             // MainForm
             // 

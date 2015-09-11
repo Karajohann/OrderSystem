@@ -33,8 +33,9 @@ namespace OrderSystem
         {
 
         }
-        //Create
-        public void Add(string Customer)
+
+
+        public void Add(string Customer)//Create
         {
             try
             {
@@ -90,7 +91,7 @@ namespace OrderSystem
             File.Copy(FileHelp, FileCustomersPath, true);
             //Πρέπει να σβήσω το File Help
             File.Delete(FileHelp);
-            
+
         }
 
         public void Update(int ID, string FirstName, string LastName, string Telephone, string Address)
@@ -107,12 +108,12 @@ namespace OrderSystem
                 {
                     if (i.ID != Cust.ID)
                     {
-                        customers.Add(Cust);
                         Add(i.ToString(), FileHelp);
+                        Add(Cust.ToString(), FileHelp);
                     }
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 MessageBox.Show(e.ToString());
             }
@@ -121,7 +122,7 @@ namespace OrderSystem
             //Πρέπει να σβήσω το File Help
             File.Delete(FileHelp);
         }
-                
+
         public static List<Customer> Read()
         {
             List<Customer> customers = new List<Customer>();
@@ -130,7 +131,7 @@ namespace OrderSystem
             foreach (string line in lines)
             {
                 var columns = line.Split(',');
-                newcustomer = new Customer(Convert.ToInt32(columns[0]), columns[1], columns[2], columns[3],columns[4]);
+                newcustomer = new Customer(Convert.ToInt32(columns[0]), columns[1], columns[2], columns[3], columns[4]);
                 customers.Add(newcustomer);
             }
             return customers;
