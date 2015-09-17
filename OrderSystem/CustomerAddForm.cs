@@ -23,22 +23,24 @@ namespace OrderSystem
             CustomersFunctions CF = new CustomersFunctions();
             if (textBox1.Text == string.Empty || textBox1.Text == null)
             {
-                MessageBox.Show("Το ID πεδίο δεν μπορεί να κενό");
+                MessageBox.Show("Το ID πεδίο δεν μπορεί να είναι κενό");
                 return;
             }
 
             if (textBox2.Text == string.Empty || textBox1.Text == null)
             {
-                MessageBox.Show("Το πεδίο Όνομα δεν μπορεί να κενό");
+                MessageBox.Show("Το πεδίο Όνομα δεν μπορεί να είναι κενό");
                 return;
             }
 
             if (textBox3.Text == string.Empty || textBox1.Text == null)
             {
-                MessageBox.Show("Το πεδίο Επώνυμο δεν μπορεί να κενό");
+                MessageBox.Show("Το πεδίο Επώνυμο δεν μπορεί να είναι κενό");
                 return;
             }
             CF.Add(Cust.StrCustomer(Convert.ToInt32(textBox1.Text), textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text));
+
+            this.FindForm().Dispose();
             
         }
     }

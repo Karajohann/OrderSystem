@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Common;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -18,14 +19,12 @@ namespace OrderSystem
         {
             InitializeComponent();
 
-            CustomersFunctions.CheckandCreate();
-
-            RefreshGrid();            
+            Refresh2Grid();            
         }
 
-        public void RefreshGrid()
+        public void Refresh2Grid()
         {
-            dataGridView1.DataSource = CustomersFunctions.Read();
+                dataGridView1.DataSource = CustomersFunctions.Read();
         }
 
         private void btnAddCustomer_Click(object sender, EventArgs e)
@@ -48,6 +47,8 @@ namespace OrderSystem
             //Method η αποία τοποθετεί τα παραπάνω στοιχεία στα κουτιά των αποθηκευμένων.(η μέθοδος έχει δημιουργηθεί στην UpdateForm)
             UpdateForm.SetExistCells(ID, FirstName, LastName, Telephone, Address);
             UpdateForm.Show();
+
+            
         }
 
         private void btnDeleteCustomer_Click(object sender, EventArgs e)
@@ -56,7 +57,27 @@ namespace OrderSystem
             int ID = Convert.ToInt32(row.Cells[0].Value.ToString());
             CustomersFunctions CF = new CustomersFunctions();
             CF.Delete(ID);
-            RefreshGrid();
+            Refresh2Grid();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            Refresh2Grid();
+        }
+
+        private void btnAddOrder_Click(object sender, EventArgs e)
+        {
+            OrdersForm OF = new OrdersForm();
+            DataGridViewRow row = dataGridView1.CurrentCell.OwningRow;
+            int ID = Convert.ToInt32(row.Cells[0].Value.ToString());
+            string FirstName = row.Cells[1].Value.ToString();
+            string LastName = row.Cells[2].Value.ToString();
+            string Telephone = row.Cells[3].Value.ToString();
+            string Address = row.Cells[4].Value.ToString();
+
+
+            OF.SetLabelInfos(ID ,FirstName, LastName, Telephone, Address);
+            OF.Show();
         }
     }
 }

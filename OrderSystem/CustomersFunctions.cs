@@ -8,8 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-using System.Reflection;
-using System.Reflection.Emit;
+
 
 namespace OrderSystem
 {
@@ -26,9 +25,7 @@ namespace OrderSystem
          * sto open Folder in File Explorer
          */
         private const string FileCustomersPath = @"Customers.txt";
-        private const string FileHelp = @"HelpFile.txt";
-        private const string FileOrdersPath = @"Orders.txt";
-
+        private const string FileHelp = @"CustHelpFile.txt";
         public CustomersFunctions()
         {
 
@@ -36,13 +33,13 @@ namespace OrderSystem
 
         public static void CheckandCreate()
         {
-            if(File.Exists(FileCustomersPath))
+            if (File.Exists(FileCustomersPath))
             {
 
             }
             else
             {
-                Customer C = new Customer(0, "-", "-", "-", "-");
+                Customer C = new Customer();
                 File.AppendAllText(FileCustomersPath, C.ToString() + Environment.NewLine);
             }
         }
@@ -64,7 +61,7 @@ namespace OrderSystem
         {
             try
             {
-                    File.AppendAllText(Path, Customer + Environment.NewLine);
+                File.AppendAllText(Path, Customer + Environment.NewLine);
             }
             catch (Exception e)
             {

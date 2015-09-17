@@ -52,8 +52,9 @@ namespace OrderSystem
             }
             CF.Update(Convert.ToInt32(IDReplace.Text), FirstNameReplace.Text,
                 LastNameReplace.Text, TelephoneReplace.Text, AddressReplace.Text);
-            
 
+            this.FindForm().Dispose();
+            
         }
 
 
