@@ -18,13 +18,15 @@ namespace OrderSystem
         public MainForm()
         {
             InitializeComponent();
+            CustomersFunctions.CheckandCreate();
+            OrdersFunctions.CheckandCreate();
 
-            Refresh2Grid();            
+            Refresh2Grid();
         }
 
         public void Refresh2Grid()
         {
-                dataGridView1.DataSource = CustomersFunctions.Read();
+            dataGridView1.DataSource = CustomersFunctions.Read();            
         }
 
         private void btnAddCustomer_Click(object sender, EventArgs e)
@@ -48,7 +50,7 @@ namespace OrderSystem
             UpdateForm.SetExistCells(ID, FirstName, LastName, Telephone, Address);
             UpdateForm.Show();
 
-            
+
         }
 
         private void btnDeleteCustomer_Click(object sender, EventArgs e)
@@ -76,7 +78,7 @@ namespace OrderSystem
             string Address = row.Cells[4].Value.ToString();
 
 
-            OF.SetLabelInfos(ID ,FirstName, LastName, Telephone, Address);
+            OF.SetLabelInfos(ID, FirstName, LastName, Telephone, Address);
             OF.Show();
         }
     }

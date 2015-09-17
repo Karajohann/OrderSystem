@@ -16,6 +16,19 @@ namespace OrderSystem
         private const string FileOrdersPath = @"Orders.txt";
         private const string FileOrderHelp = @"OrderHelpFile.txt";
 
+        public static void CheckandCreate()
+        {
+            if (File.Exists(FileOrdersPath))
+            {
+
+            }
+            else
+            {
+                Order o = new Order();
+                File.AppendAllText(FileOrdersPath, o.ToString() + Environment.NewLine);
+            }
+        }
+
         public static void Create(string Order)
         {
             try
@@ -35,7 +48,7 @@ namespace OrderSystem
             string[] lines = File.ReadAllLines(FileOrdersPath);
             foreach (string line in lines)
             {
-                var word = line.Split(',', ' ', '\n');
+                var word = line.Split(',','\n');
                 int IdComparison = Convert.ToInt32(word[0]);
                 if (IdComparison == ID)
                 {

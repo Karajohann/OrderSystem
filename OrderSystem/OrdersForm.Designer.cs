@@ -40,19 +40,19 @@
             this.OrdersGridView.AllowUserToAddRows = false;
             this.OrdersGridView.AllowUserToDeleteRows = false;
             this.OrdersGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.OrdersGridView.Location = new System.Drawing.Point(12, 88);
+            this.OrdersGridView.Location = new System.Drawing.Point(12, 99);
             this.OrdersGridView.Name = "OrdersGridView";
             this.OrdersGridView.ReadOnly = true;
-            this.OrdersGridView.Size = new System.Drawing.Size(861, 484);
+            this.OrdersGridView.Size = new System.Drawing.Size(861, 473);
             this.OrdersGridView.TabIndex = 0;
             // 
             // CustomerInfo
             // 
             this.CustomerInfo.AutoSize = true;
-            this.CustomerInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.CustomerInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.CustomerInfo.Location = new System.Drawing.Point(20, 15);
             this.CustomerInfo.Name = "CustomerInfo";
-            this.CustomerInfo.Size = new System.Drawing.Size(57, 20);
+            this.CustomerInfo.Size = new System.Drawing.Size(45, 16);
             this.CustomerInfo.TabIndex = 1;
             this.CustomerInfo.Text = "label1";
             // 
@@ -86,6 +86,7 @@
             this.Controls.Add(this.OrdersGridView);
             this.Name = "OrdersForm";
             this.Text = "Orders";
+            this.Activated += new System.EventHandler(this.OrdersForm_Load);
             this.Load += new System.EventHandler(this.OrdersForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.OrdersGridView)).EndInit();
             this.ResumeLayout(false);

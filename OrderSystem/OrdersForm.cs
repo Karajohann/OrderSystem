@@ -15,11 +15,12 @@ namespace OrderSystem
         public OrdersForm()
         {
             InitializeComponent();
+
         }
 
         public void SetLabelInfos(int ID, string FirstName, string LastName, string Telephone = "-", string Address = "-")
         {            
-            string Infos = ID.ToString() + " " + FirstName + " " + LastName + "\n" + Telephone + "\n" + Address;
+            string Infos = ID.ToString() + "\n" + FirstName + "\n" + LastName + "\n" + Telephone + "\n" + Address;
             CustomerInfo.Text = Infos;
         }
 
@@ -28,7 +29,7 @@ namespace OrderSystem
         {
             get
             {
-                char[] delimiterChars = { ' ', '\n' };
+                char[] delimiterChars = { ',', '\n' };
 
                 string text = CustomerInfo.Text;
 

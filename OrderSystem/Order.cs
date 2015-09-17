@@ -39,6 +39,8 @@ namespace OrderSystem
             set { _price = value; }
         }
 
+
+
         public Order()
         {
             
@@ -55,7 +57,7 @@ namespace OrderSystem
 
         public override string ToString()
         {
-            return IDCustomer + " " + Productcode + " " + Description + " " + Quantity + " " + Price;
+            return IDCustomer + "," + Productcode + "," + Description + "," + Quantity + "," + Price;
         }
 
         public override bool Equals(object obj)
