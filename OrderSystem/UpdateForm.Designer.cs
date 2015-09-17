@@ -145,7 +145,7 @@
             this.Controls.Add(this.FirstNameExist);
             this.Controls.Add(this.IDExist);
             this.Name = "UpdateForm";
-            this.Text = "UpdateForm";
+            this.Text = "Φόρμα Ενημέρωσης Στοιχείων";
             this.ResumeLayout(false);
             this.PerformLayout();
 

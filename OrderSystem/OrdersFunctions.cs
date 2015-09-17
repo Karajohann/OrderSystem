@@ -41,6 +41,18 @@ namespace OrderSystem
             }
         }
 
+        public static void Create(string Order, string Path)
+        {
+            try
+            {
+                File.AppendAllText(Path, Order + Environment.NewLine);
+            }
+            catch (Exception e)
+            {
+                System.Windows.Forms.MessageBox.Show(e.ToString());
+            }
+        }
+
         public static List<Order> Read(int ID)
         {            
             List<Order> Ordering = new List<Order>();
@@ -52,21 +64,68 @@ namespace OrderSystem
                 int IdComparison = Convert.ToInt32(word[0]);
                 if (IdComparison == ID)
                 {
-                    neworder = new Order(Int32.Parse(word[0]), word[1], word[2], Convert.ToInt32(word[3]), Convert.ToSingle(word[4]));
+                    neworder = new Order(Int32.Parse(word[0]), word[1], word[2], Convert.ToInt32(word[3]), Convert.ToDouble(word[4]));
                     Ordering.Add(neworder);
                 }
             }
             return Ordering;
         }
 
-        //public static void Updating
-        //{
 
-        //}
+        /*Εδώ αν και υπάρχει το πεδίο CodeProduct το οποίο θα είναι μοναδικό εντούτοις θα χρησιμοποιήσουμε
+        την μέθοδο equals που κάναμε override στην Order Class*/
+        public static void Update(int ID, string productcode, string description, int quantity, double price)
+        {
+            /*List<Order> orders = Read(ID);
+            Order order = new Order(ID, productcode, description, quantity, price);
+            try
+            {
+                foreach (Order i in orders)
+                {
+                    if(i.Equals(order))
+                    {
 
-        //public static void Delete
-        //{
+                    }
+                    else
+                    {
+                        Create(i.ToString(), FileOrderHelp);
+                    }
+                    Create(order.ToString());                    
+                }
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            File.Copy(FileOrderHelp, FileOrdersPath, true);
+            File.Delete(FileOrderHelp);*/
+            
+        }
 
-        //}
+        public static void Delete(int ID, string productcode, string description, int quantity, double price)
+        {
+            List<Order> orders = Read(ID);
+            Order order = new Order(ID, productcode, description, quantity, price);
+            try
+            {
+                foreach (Order i in orders)
+                {
+                    if(i.Equals(order))
+                    {
+
+                    }
+                    else
+                    {
+                        Create(i.ToString(), FileOrderHelp);
+                    }
+                }
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            File.Copy(FileOrderHelp, FileOrdersPath, true);
+            File.Delete(FileOrderHelp);
+        }
     }
 }

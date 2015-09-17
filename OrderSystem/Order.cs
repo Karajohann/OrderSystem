@@ -32,8 +32,8 @@ namespace OrderSystem
             get { return _quantity; }
             set { _quantity = value; }
         }
-        float _price;
-        public float Price
+        double _price;
+        public double Price
         {
             get { return _price; }
             set { _price = value; }
@@ -46,7 +46,7 @@ namespace OrderSystem
             
         }
 
-        public Order(int CustomerID, string productcode, string description, int quantity, float price)
+        public Order(int CustomerID, string productcode, string description, int quantity, double price)
         {
             this.IDCustomer = CustomerID;
             this.Productcode = productcode;
@@ -66,12 +66,12 @@ namespace OrderSystem
             {
                 return false;
             }
-            if (!(obj is Customer))
+            if (!(obj is Order))
             {
                 return false;
             }
 
-            return this.IDCustomer == ((Order)obj)._IDCustomer;
+            return this.IDCustomer == ((Order)obj)._IDCustomer ^ this.Description == ((Order)obj).Description;
         }
 
         public override int GetHashCode()

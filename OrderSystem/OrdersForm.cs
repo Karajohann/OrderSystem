@@ -51,5 +51,16 @@ namespace OrderSystem
             OrdersGridView.DataSource = OrdersFunctions.Read(ID);
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow row = OrdersGridView.CurrentCell.OwningRow;
+            int ID = Convert.ToInt32(row.Cells[0].Value.ToString());
+            string ProductCode = row.Cells[1].Value.ToString();
+            string Description = row.Cells[2].Value.ToString();
+            int quantity = Convert.ToInt32(row.Cells[3].Value.ToString());
+            double price = Convert.ToDouble(row.Cells[4].Value.ToString());
+            OrdersFunctions.Delete(ID, ProductCode, Description, quantity, price);
+        }
+
     }
 }

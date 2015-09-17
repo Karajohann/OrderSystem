@@ -29,7 +29,7 @@ namespace OrderSystem
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Order order = new Order(Convert.ToInt32(textBox1.Text), textBox2.Text, textBox3.Text, Convert.ToInt32(textBox4.Text), Convert.ToSingle(textBox5.Text));
+            Order order = new Order(Convert.ToInt32(textBox1.Text), textBox2.Text, textBox3.Text, Convert.ToInt32(textBox4.Text), Convert.ToDouble(textBox5.Text));
             OrdersFunctions.Create(order.ToString());
             this.FindForm().Dispose();
         }

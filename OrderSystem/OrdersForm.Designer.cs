@@ -43,7 +43,8 @@
             this.OrdersGridView.Location = new System.Drawing.Point(12, 99);
             this.OrdersGridView.Name = "OrdersGridView";
             this.OrdersGridView.ReadOnly = true;
-            this.OrdersGridView.Size = new System.Drawing.Size(861, 473);
+            this.OrdersGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.OrdersGridView.Size = new System.Drawing.Size(861, 448);
             this.OrdersGridView.TabIndex = 0;
             // 
             // CustomerInfo
@@ -74,6 +75,7 @@
             this.button2.TabIndex = 3;
             this.button2.Text = "Διαγραφή Παραγγελίας";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // OrdersForm
             // 
@@ -85,7 +87,7 @@
             this.Controls.Add(this.CustomerInfo);
             this.Controls.Add(this.OrdersGridView);
             this.Name = "OrdersForm";
-            this.Text = "Orders";
+            this.Text = "Παραγγελίες";
             this.Activated += new System.EventHandler(this.OrdersForm_Load);
             this.Load += new System.EventHandler(this.OrdersForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.OrdersGridView)).EndInit();

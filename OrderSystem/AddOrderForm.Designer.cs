@@ -155,7 +155,7 @@
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Name = "AddOrderForm";
-            this.Text = "AddOrderForm";
+            this.Text = "Προσθήκη Παραγγελίας";
             this.Load += new System.EventHandler(this.AddOrderForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
