@@ -13,3 +13,4 @@ C:\Users\chrysikos\Documents\GitHub\OrderSystem\OrderSystem\obj\Debug\OrderSyste
 C:\Users\Giannis\Documents\GitHub\OrderSystem\OrderSystem\obj\Debug\OrderSystem.UpdateForm.resources
 C:\Users\Giannis\Documents\GitHub\OrderSystem\OrderSystem\obj\Debug\OrderSystem.OrdersForm.resources
 C:\Users\Giannis\Documents\GitHub\OrderSystem\OrderSystem\obj\Debug\OrderSystem.AddOrderForm.resources
+C:\Users\Giannis\Documents\GitHub\OrderSystem\OrderSystem\obj\Debug\OrderSystem.csprojResolveAssemblyReference.cache

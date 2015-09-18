@@ -91,11 +91,6 @@ namespace OrderSystem
             this.Address = Address;
         }
 
-        public string StrCustomer(int ID, string FirstName, string LastName, string Telephone, string Address)
-        {
-            return ID + "," + FirstName + "," + LastName + "," + Telephone + "," + Address; 
-        }
-
         /// <summary>
         /// Επιστρέφει τα στοιχεία του πελάτη σε μορφή "ID, FirstName, LastName, Telephone, Address"
         /// </summary>

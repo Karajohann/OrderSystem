@@ -52,15 +52,36 @@ namespace OrderSystem
                 System.Windows.Forms.MessageBox.Show(e.ToString());
             }
         }
-
+        /// <summary>
+        /// Διαβάζει όλες τις παραγγελίες από όλους τους πελάτες
+        /// </summary>
+        /// <returns></returns>
+        public static List<Order> Read()
+        {
+            List<Order> Orders = new List<Order>();
+            Order neworder;
+            string[] lines = File.ReadAllLines(FileOrdersPath);
+            foreach (string line in lines)
+            {
+                var columns = line.Split(',');
+                neworder = new Order(Convert.ToInt32(columns[0]), columns[1], (columns[2]), Convert.ToInt32(columns[3]), Convert.ToDouble(columns[4]));
+                Orders.Add(neworder);
+            }
+            return Orders;
+        }
+        /// <summary>
+        /// Διαβάζει μόνο τις παραγγελίες του πελάτη της παραμέτρου
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
         public static List<Order> Read(int ID)
-        {            
+        {
             List<Order> Ordering = new List<Order>();
             Order neworder;
             string[] lines = File.ReadAllLines(FileOrdersPath);
             foreach (string line in lines)
             {
-                var word = line.Split(',','\n');
+                var word = line.Split(',', '\n');
                 int IdComparison = Convert.ToInt32(word[0]);
                 if (IdComparison == ID)
                 {
@@ -72,38 +93,36 @@ namespace OrderSystem
         }
 
 
-        /*Εδώ αν και υπάρχει το πεδίο CodeProduct το οποίο θα είναι μοναδικό εντούτοις θα χρησιμοποιήσουμε
-        την μέθοδο equals που κάναμε override στην Order Class*/
         public static void Update(int ID, string ordercode, string description, int quantity, double price)
         {
-            List<Order> orders = Read(ID);
+            List<Order> orders = Read();
             Order order = new Order(ID, ordercode, description, quantity, price);
             try
             {
                 foreach (Order i in orders)
-                {
-                    if(order.IDCustomer != i.IDCustomer && order.Ordercode != i.Ordercode)
-                    {
-                        Create(i.ToString(), FileOrderHelp);
-                    }
-                    if(order.IDCustomer == i.IDCustomer && order.Ordercode != i.Ordercode)
-                    {
-                        Create(i.ToString(), FileOrderHelp);
-                    }
-                    Create(order.ToString(), FileOrderHelp);                    
+                {                    
+                    Create(i.ToString(), FileOrderHelp);
                 }
+                Create(order.ToString(), FileOrderHelp);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 MessageBox.Show(e.ToString());
             }
             File.Copy(FileOrderHelp, FileOrdersPath, true);
-            File.Delete(FileOrderHelp);            
+            File.Delete(FileOrderHelp);
         }
-
+        /// <summary>
+        /// Διαγράφει μία παραγγελία από πελάτη
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <param name="ordercode"></param>
+        /// <param name="description"></param>
+        /// <param name="quantity"></param>
+        /// <param name="price"></param>
         public static void Delete(int ID, string ordercode, string description, int quantity, double price)
         {
-            List<Order> orders = Read(ID);
+            List<Order> orders = Read();
             Order order = new Order(ID, ordercode, description, quantity, price);
             try
             {
@@ -117,9 +136,41 @@ namespace OrderSystem
                     {
                         Create(i.ToString(), FileOrderHelp);
                     }
+                    if (order.IDCustomer != i.IDCustomer && order.Ordercode == i.Ordercode)
+                    {
+                        Create(i.ToString(), FileOrderHelp);
+                    }
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            File.Copy(FileOrderHelp, FileOrdersPath, true);
+            File.Delete(FileOrderHelp);
+        }
+        /// <summary>
+        /// Διαγράφει όλες τις παραγγελίες του πελάτη που έχει τεθεί το IDCustomer
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <param name="ordercode"></param>
+        /// <param name="description"></param>
+        /// <param name="quantity"></param>
+        /// <param name="price"></param>
+        public static void Delete(int IDCustomer)
+        {
+            List<Order> orders = Read();
+            try
+            {
+                foreach (Order i in orders)
+                {
+                    if (IDCustomer != i.IDCustomer)
+                    {
+                        Create(i.ToString(), FileOrderHelp);
+                    }
+                }
+            }
+            catch (Exception e)
             {
                 MessageBox.Show(e.ToString());
             }

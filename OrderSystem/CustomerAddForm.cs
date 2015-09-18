@@ -38,7 +38,12 @@ namespace OrderSystem
                 MessageBox.Show("Το πεδίο Επώνυμο δεν μπορεί να είναι κενό");
                 return;
             }
-            CF.Add(Cust.StrCustomer(Convert.ToInt32(textBox1.Text), textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text));
+            Cust.ID = Convert.ToInt32(textBox1.Text);
+            Cust.FirstName = textBox2.Text;
+            Cust.LastName = textBox3.Text;
+            Cust.Telephone = textBox4.Text;
+            Cust.Address = textBox5.Text;
+            CF.Add(Cust.ToString());
 
             this.FindForm().Dispose();
             

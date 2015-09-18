@@ -26,7 +26,7 @@ namespace OrderSystem
 
         public void Refresh2Grid()
         {
-            dataGridView1.DataSource = CustomersFunctions.Read();            
+            dataGridView1.DataSource = CustomersFunctions.Read();
         }
 
         private void btnAddCustomer_Click(object sender, EventArgs e)
@@ -37,6 +37,7 @@ namespace OrderSystem
 
         private void btnUpdateCustomer_Click(object sender, EventArgs e)
         {
+
             //Εδώ θέτω στην νέα Update Form ποιά θα είναι τα στοιχεία στα Κελιά των αποθηκευμένων.
             UpdateForm UpdateForm = new UpdateForm();
             DataGridViewRow row = dataGridView1.CurrentCell.OwningRow;
@@ -57,9 +58,15 @@ namespace OrderSystem
         {
             DataGridViewRow row = dataGridView1.CurrentCell.OwningRow;
             int ID = Convert.ToInt32(row.Cells[0].Value.ToString());
-            CustomersFunctions CF = new CustomersFunctions();
-            CF.Delete(ID);
-            Refresh2Grid();
+            string FirstName = row.Cells[1].Value.ToString();
+            string LastName = row.Cells[2].Value.ToString();
+            if (MessageBox.Show("ΠΡΟΣΟΧΗ! Εάν ο πελάτης έχει αποθηκευμένες παραγγελίες θα σβηστούν και αυτές!\nΕίστε σίγουροι ότι θέλετε να σβήσετε τον πελάτη;", "Διαγραφή πελάτη " + FirstName + " " + LastName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                CustomersFunctions CF = new CustomersFunctions();
+                CF.Delete(ID);
+                OrdersFunctions.Delete(ID);
+                Refresh2Grid();                
+            }
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -76,7 +83,6 @@ namespace OrderSystem
             string LastName = row.Cells[2].Value.ToString();
             string Telephone = row.Cells[3].Value.ToString();
             string Address = row.Cells[4].Value.ToString();
-
 
             OF.SetLabelInfos(ID, FirstName, LastName, Telephone, Address);
             OF.Show();
