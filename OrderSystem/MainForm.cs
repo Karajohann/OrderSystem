@@ -21,12 +21,12 @@ namespace OrderSystem
             CustomersFunctions.CheckandCreate();
             OrdersFunctions.CheckandCreate();
 
-            Refresh2Grid();
+            RefreshGridCustomers();
         }
 
-        public void Refresh2Grid()
+        public void RefreshGridCustomers()
         {
-            dataGridView1.DataSource = CustomersFunctions.Read();
+            dataGridView1.DataSource = CustomersFunctions.ReadGrid();
         }
 
         private void btnAddCustomer_Click(object sender, EventArgs e)
@@ -65,13 +65,13 @@ namespace OrderSystem
                 CustomersFunctions CF = new CustomersFunctions();
                 CF.Delete(ID);
                 OrdersFunctions.Delete(ID);
-                Refresh2Grid();                
+                RefreshGridCustomers();                
             }
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            Refresh2Grid();
+            RefreshGridCustomers();
         }
 
         private void btnAddOrder_Click(object sender, EventArgs e)

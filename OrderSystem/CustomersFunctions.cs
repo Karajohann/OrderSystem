@@ -131,5 +131,23 @@ namespace OrderSystem
             }
             return customers;
         }
+
+        public static List<Customer> ReadGrid()
+        {
+            List<Customer> customers = new List<Customer>();
+            Customer newcustomer;
+            string[] lines = File.ReadAllLines(FileCustomersPath);
+            foreach (string line in lines)
+            {
+                var columns = line.Split(',');
+                int IdComparison = Convert.ToInt32(columns[0]);
+                if (IdComparison > 0)
+                {
+                    newcustomer = new Customer(Convert.ToInt32(columns[0]), columns[1], columns[2], columns[3], columns[4]);
+                    customers.Add(newcustomer);
+                }
+            }
+            return customers;
+        }
     }
 }
