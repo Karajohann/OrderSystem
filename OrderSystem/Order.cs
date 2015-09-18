@@ -14,11 +14,11 @@ namespace OrderSystem
             get { return _IDCustomer; }
             set { _IDCustomer = value; }
         }
-        string _productcode;
-        public string Productcode
+        string _ordercode;
+        public string Ordercode
         {
-            get { return _productcode; }
-            set { _productcode = value; }
+            get { return _ordercode; }
+            set { _ordercode = value; }
         }
         string _description;
         public string Description
@@ -46,10 +46,10 @@ namespace OrderSystem
             
         }
 
-        public Order(int CustomerID, string productcode, string description, int quantity, double price)
+        public Order(int CustomerID, string ordercode, string description, int quantity, double price)
         {
             this.IDCustomer = CustomerID;
-            this.Productcode = productcode;
+            this.Ordercode = ordercode;
             this.Description = description;
             this.Quantity = quantity;
             this.Price = price;
@@ -57,7 +57,7 @@ namespace OrderSystem
 
         public override string ToString()
         {
-            return IDCustomer + "," + Productcode + "," + Description + "," + Quantity + "," + Price;
+            return IDCustomer + "," + Ordercode + "," + Description + "," + Quantity + "," + Price;
         }
 
         public override bool Equals(object obj)
@@ -71,7 +71,7 @@ namespace OrderSystem
                 return false;
             }
 
-            return this.IDCustomer == ((Order)obj)._IDCustomer ^ this.Description == ((Order)obj).Description;
+            return this.IDCustomer == ((Order)obj).IDCustomer ^ this.Ordercode == ((Order)obj).Ordercode;
         }
 
         public override int GetHashCode()

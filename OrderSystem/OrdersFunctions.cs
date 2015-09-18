@@ -74,23 +74,23 @@ namespace OrderSystem
 
         /*Εδώ αν και υπάρχει το πεδίο CodeProduct το οποίο θα είναι μοναδικό εντούτοις θα χρησιμοποιήσουμε
         την μέθοδο equals που κάναμε override στην Order Class*/
-        public static void Update(int ID, string productcode, string description, int quantity, double price)
+        public static void Update(int ID, string ordercode, string description, int quantity, double price)
         {
-            /*List<Order> orders = Read(ID);
-            Order order = new Order(ID, productcode, description, quantity, price);
+            List<Order> orders = Read(ID);
+            Order order = new Order(ID, ordercode, description, quantity, price);
             try
             {
                 foreach (Order i in orders)
                 {
-                    if(i.Equals(order))
-                    {
-
-                    }
-                    else
+                    if(order.IDCustomer != i.IDCustomer && order.Ordercode != i.Ordercode)
                     {
                         Create(i.ToString(), FileOrderHelp);
                     }
-                    Create(order.ToString());                    
+                    if(order.IDCustomer == i.IDCustomer && order.Ordercode != i.Ordercode)
+                    {
+                        Create(i.ToString(), FileOrderHelp);
+                    }
+                    Create(order.ToString(), FileOrderHelp);                    
                 }
             }
             catch(Exception e)
@@ -98,23 +98,22 @@ namespace OrderSystem
                 MessageBox.Show(e.ToString());
             }
             File.Copy(FileOrderHelp, FileOrdersPath, true);
-            File.Delete(FileOrderHelp);*/
-            
+            File.Delete(FileOrderHelp);            
         }
 
-        public static void Delete(int ID, string productcode, string description, int quantity, double price)
+        public static void Delete(int ID, string ordercode, string description, int quantity, double price)
         {
             List<Order> orders = Read(ID);
-            Order order = new Order(ID, productcode, description, quantity, price);
+            Order order = new Order(ID, ordercode, description, quantity, price);
             try
             {
                 foreach (Order i in orders)
                 {
-                    if(i.Equals(order))
+                    if (order.IDCustomer != i.IDCustomer && order.Ordercode != i.Ordercode)
                     {
-
+                        Create(i.ToString(), FileOrderHelp);
                     }
-                    else
+                    if (order.IDCustomer == i.IDCustomer && order.Ordercode != i.Ordercode)
                     {
                         Create(i.ToString(), FileOrderHelp);
                     }

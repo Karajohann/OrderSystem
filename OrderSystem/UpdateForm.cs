@@ -17,20 +17,17 @@ namespace OrderSystem
     {
         public UpdateForm()
         {
-            InitializeComponent();
-            
+            InitializeComponent();            
         }
 
         public void SetExistCells(int id, string FirstName, string LastName, string Telephone, string Address)
         {
-
             IDExist.Text = id.ToString();
             FirstNameExist.Text = FirstName;
             LastNameExist.Text = LastName;
             TelephoneExist.Text = Telephone;
             AddressExist.Text = Address;
             IDReplace.Text = id.ToString();
-
         }
 
         private void button1_Click(object sender, EventArgs e)

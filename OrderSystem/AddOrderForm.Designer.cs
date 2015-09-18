@@ -43,7 +43,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(146, 30);
+            this.textBox1.Location = new System.Drawing.Point(155, 30);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(224, 20);
@@ -51,28 +51,28 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(146, 56);
+            this.textBox2.Location = new System.Drawing.Point(155, 56);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(224, 20);
             this.textBox2.TabIndex = 1;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(146, 82);
+            this.textBox3.Location = new System.Drawing.Point(155, 82);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(224, 20);
             this.textBox3.TabIndex = 2;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(146, 108);
+            this.textBox4.Location = new System.Drawing.Point(155, 108);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(224, 20);
             this.textBox4.TabIndex = 3;
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(146, 134);
+            this.textBox5.Location = new System.Drawing.Point(155, 134);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(224, 20);
             this.textBox5.TabIndex = 4;
@@ -104,9 +104,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.label2.Location = new System.Drawing.Point(12, 60);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(127, 16);
+            this.label2.Size = new System.Drawing.Size(137, 16);
             this.label2.TabIndex = 7;
-            this.label2.Text = "Κωδικός Προϊόντος";
+            this.label2.Text = "Κωδικός Παραγγελίας";
             // 
             // label3
             // 
@@ -142,7 +142,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(381, 207);
+            this.ClientSize = new System.Drawing.Size(400, 207);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
